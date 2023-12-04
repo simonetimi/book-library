@@ -11,7 +11,7 @@ h1 {
     position: relative;
     display: inline-block;
     font-size: 36px;
-    background: linear-gradient(to bottom, #4c3642, #4c3642 60%, #fff 60%, #fff 100%);
+    background: linear-gradient(to bottom, #000, #000 60%, #fff 60%, #fff 100%);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -31,7 +31,7 @@ h1 {
     left: 0;
     right: 0;
     height: 15px;
-    background: #4c3642;
+    background: #000;
     bottom: 9px;
     transition: all 0.2s ease-out;
   }
@@ -51,6 +51,10 @@ body {
     font-size: 14px;
     min-height: 100vh;
     background: #EFEFEF;
+    --dot-bg: black;
+    --dot-color: white;
+    --dot-size: 2px;
+    --dot-space: 50px;
 }
 
 a {
@@ -68,8 +72,10 @@ h3 {
 
 main {
     grid-area: 1 / 2 / 2 / 3;
-    background-color: #4c3642;
     padding: 1rem;
+    background: linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+    linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
 }
 
 aside {

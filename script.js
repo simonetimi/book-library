@@ -74,11 +74,13 @@ const titleForm = document.getElementById('title');
 const authorForm = document.getElementById('author');
 const releaseForm = document.getElementById('release');
 const genreForm = document.getElementById('genre');
-const readForm = document.getElementById('read');
+
 
 const saveButton = document.getElementById('save');
 saveButton.addEventListener('click', (event) => {
-  myLibrary.push(new Book (titleForm.value, authorForm.value, releaseForm.value, genreForm.value, genreForm.value));
-  event.preventDefault();
-  renderCards(myLibrary[myLibrary.length - 1], myLibrary.length - 1);
+ const readForm = document.getElementById('read').checked ? 'Read' : 'Unread';
+ if (titleForm.value !== '' && authorForm.value !== '' && releaseForm.value !== '' && genreForm.value !== '') {
+   myLibrary.push(new Book (titleForm.value, authorForm.value, releaseForm.value, genreForm.value, readForm));
+   renderCards(myLibrary[myLibrary.length - 1], myLibrary.length - 1);
+ }
 });

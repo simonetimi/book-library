@@ -18,19 +18,19 @@
             <ul>
                 <li>
                     <label for="title">Title</label>
-                    <input type="text" id="title">
+                    <input type="text" id="title" maxlength="30" required>
                 </li>
                 <li>
                     <label for="author">Author</label>
-                    <input type="text" id="author">
+                    <input type="text" id="author" maxlength="30" required>
                 </li>
                 <li>
-                    <label for="release">First Published in</label>
-                    <input type="number" id="release">
+                    <label for="release">First Published in (year)</label>
+                    <input type="number" id="release" min="0000" max="2050" required>
                 </li>
                 <li>
                     <label for="genre">Genre</label>
-                    <input type="text" id="genre">
+                    <input type="text" id="genre" minlength="1" maxlength="20" required>
                 </li>
                 <li>
                     <label for="read">Did you read it?</label>
