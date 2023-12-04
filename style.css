@@ -6,6 +6,44 @@
     box-sizing: border-box;
 }
 
+h1 {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    font-size: 36px;
+    background: linear-gradient(to bottom, #4c3642, #4c3642 60%, #fff 60%, #fff 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-repeat: no-repeat;
+    transition: background 0.2s ease-out;
+    white-space: nowrap;
+}
+
+.underline {
+    position: relative;
+    width: 225px;
+  }
+  
+  .underline:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background: #4c3642;
+    bottom: 9px;
+    transition: all 0.2s ease-out;
+  }
+  
+  h1:hover {
+    background-position: 0 11px;
+  }
+  
+  .underline:hover:before {
+    transform: translateY(10px)
+  }
+
 body {
     display: grid;
     grid-template: 1fr / 290px 5fr;
@@ -30,7 +68,7 @@ h3 {
 
 main {
     grid-area: 1 / 2 / 2 / 3;
-    background-color: #9FA0C3;
+    background-color: #4c3642;
     padding: 1rem;
 }
 

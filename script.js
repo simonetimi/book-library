@@ -84,7 +84,7 @@ myLibrary.forEach((book, idx) => {
           <li id="read-status-${idx}">Status: ${book.read}</li>
         </ul>
       <div class="controls">
-        <a id="read-${idx}" href="#"><img src="images/read.svg"></a>
+        <a id="read-${idx}" href="#"><img id="read-icon" src="images/read.svg"></a>
         <a id="delete-${idx}" href="#"><img src="images/delete.svg"></a>
        </div>
      </div>
@@ -103,8 +103,18 @@ myLibrary.forEach((book, idx) => {
  readButton.addEventListener('click', () => {
    myLibrary[idx].read = myLibrary[idx].read === "Read" ? "Unread" : "Read";
    newElement.querySelector(`#read-status-${idx}`).innerHTML = `Status: ${myLibrary[idx].read}`;
+    if (myLibrary[idx].read === 'Read') {
+      newElement.querySelector('#read-icon').src='images/unread.svg';
+    } else if (myLibrary[idx].read === 'Unread') {
+      newElement.querySelector('#read-icon').src='images/read.svg';
+    }
  });
  // Append the new element to the container
  container.appendChild(newElement);
 });
 
+
+/* TO DO AFTER THE INPUT + CREATE BOOK IN LIBRARY WORKS
+change read/unread icon depending on the status in the library
+check the value with if/else if condition, then add
+*/
