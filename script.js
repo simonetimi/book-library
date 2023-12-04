@@ -8,20 +8,6 @@ let myLibrary = [
   },
 ];
 
-function writeCard() {
-  document.getElementById('books-container').innerHTML = `<div class="card">
-  <div class="content">
-      <h4 id="card-book-title"></h4>
-      <p id"card-book-info"></p>
-      <div class="controls">
-          <a href="#"><img src="images/fav.svg"></a>
-          <a href="#"><img src="images/share.svg"></a>
-      </div>
-  </div>
-</div>`
-document.getElementById('card-book-title')
-};
-
 function Book(title, author, releaseYear, genre, read) {
   this.title = title;
   this.author = author;
@@ -30,32 +16,6 @@ function Book(title, author, releaseYear, genre, read) {
   this.read = read;
 };
 
-const newBook = new Book();
-
-function addBookToLibrary() {
-
-  push.myLibrary('');
-};
-
-const titleForm = document.getElementById('title');
-const authorForm = document.getElementById('author');
-const releaseForm = document.getElementById('release');
-const genreForm = document.getElementById('genre');
-const readForm = document.getElementById('read');
-
-//checked
-//value
-// Save book info
-const saveButton = document.getElementById('save');
-saveButton.addEventListener('click', (event) => {
-  
-  event.preventDefault;
-});
-
-
- // check????
-
-
 // Hide/show form
 const showFormButton = document.getElementById('add-book');
 showFormButton.addEventListener('click', () => {
@@ -63,14 +23,9 @@ showFormButton.addEventListener('click', () => {
   hiddenForm.classList.toggle('hide')
 });
 
-
-/*crea il div con il form*/
-/* get element by id = value sei singoli INPUT form */
-/* vedi come non madare al server con submit */
-
 const container = document.getElementById('books-container');
 
-myLibrary.forEach((book, idx) => {
+function renderCards(book, idx) {
  // Construct card content
  const content = `
  <div class="card-container-${idx}">
@@ -111,10 +66,19 @@ myLibrary.forEach((book, idx) => {
  });
  // Append the new element to the container
  container.appendChild(newElement);
+};
+
+myLibrary.forEach(renderCards);
+
+const titleForm = document.getElementById('title');
+const authorForm = document.getElementById('author');
+const releaseForm = document.getElementById('release');
+const genreForm = document.getElementById('genre');
+const readForm = document.getElementById('read');
+
+const saveButton = document.getElementById('save');
+saveButton.addEventListener('click', (event) => {
+  myLibrary.push(new Book (titleForm.value, authorForm.value, releaseForm.value, genreForm.value, genreForm.value));
+  event.preventDefault();
+  renderCards(myLibrary[myLibrary.length - 1], myLibrary.length - 1);
 });
-
-
-/* TO DO AFTER THE INPUT + CREATE BOOK IN LIBRARY WORKS
-change read/unread icon depending on the status in the library
-check the value with if/else if condition, then add
-*/
