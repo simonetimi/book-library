@@ -47,6 +47,13 @@ function renderCards(book, idx) {
  // Create a new element and set its innerHTML
  const newElement = document.createElement('div');
  newElement.innerHTML = content;
+// Set the image source based on the read status
+const readIcon = newElement.querySelector('#read-icon');
+if (book.read === 'Read') {
+  readIcon.src = 'images/unread.svg';
+} else {
+  readIcon.src = 'images/read.svg';
+}
  // Get the delete button and add the event listener
  const deleteButton = newElement.querySelector(`#delete-${idx}`);
  deleteButton.addEventListener('click', () => {
@@ -83,5 +90,5 @@ saveButton.addEventListener('click', (event) => {
   if (titleForm.value !== '' && authorForm.value !== '' && releaseForm.value !== '' && genreForm.value !== '') {
     myLibrary.push(new Book (titleForm.value, authorForm.value, releaseForm.value, genreForm.value, readForm));
     renderCards(myLibrary[myLibrary.length - 1], myLibrary.length - 1);
- }
+    }
 });

@@ -14,23 +14,23 @@
     <aside>
         <span class="underline"><h1>Book Library</h1></span>
         <div class="buttons"><button id="add-book">Add Book</button></div>
-        <form class="hide" id="hidden-form">
+        <form class="hide" id="hidden-form" method="dialog">
             <ul>
                 <li>
                     <label for="title">Title</label>
-                    <input type="text" id="title" maxlength="30" required>
+                    <input type="text" id="title">
                 </li>
                 <li>
                     <label for="author">Author</label>
-                    <input type="text" id="author" maxlength="30" required>
+                    <input type="text" id="author">
                 </li>
                 <li>
                     <label for="release">First Published in (year)</label>
-                    <input type="number" id="release" min="0000" max="2050" required>
+                    <input type="number" id="release">
                 </li>
                 <li>
                     <label for="genre">Genre</label>
-                    <input type="text" id="genre" minlength="1" maxlength="20" required>
+                    <input type="text" id="genre">
                 </li>
                 <li>
                     <label for="read">Did you read it?</label>
