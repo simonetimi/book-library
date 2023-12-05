@@ -78,9 +78,10 @@ const genreForm = document.getElementById('genre');
 
 const saveButton = document.getElementById('save');
 saveButton.addEventListener('click', (event) => {
- const readForm = document.getElementById('read').checked ? 'Read' : 'Unread';
- if (titleForm.value !== '' && authorForm.value !== '' && releaseForm.value !== '' && genreForm.value !== '') {
-   myLibrary.push(new Book (titleForm.value, authorForm.value, releaseForm.value, genreForm.value, readForm));
-   renderCards(myLibrary[myLibrary.length - 1], myLibrary.length - 1);
+  event.preventDefault();
+  const readForm = document.getElementById('read').checked ? 'Read' : 'Unread';
+  if (titleForm.value !== '' && authorForm.value !== '' && releaseForm.value !== '' && genreForm.value !== '') {
+    myLibrary.push(new Book (titleForm.value, authorForm.value, releaseForm.value, genreForm.value, readForm));
+    renderCards(myLibrary[myLibrary.length - 1], myLibrary.length - 1);
  }
 });
