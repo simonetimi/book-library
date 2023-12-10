@@ -9,12 +9,14 @@ const myLibrary = (function () {
     },
   ];
 
-  function Book(title, author, releaseYear, genre, read) {
+  class Book {
+      constructor (title, author, releaseYear, genre, read) {
     this.title = title;
     this.author = author;
     this.releaseYear = releaseYear;
     this.genre = genre;
     this.read = read;
+      }
   };
 
   function renderCards(book, idx) {
